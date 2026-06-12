@@ -1,0 +1,23 @@
+---
+title: AI Evaluator
+summary: Benchmarking framework for LLM evaluation
+---
+
+## Overview
+
+AI Evaluator provides a systematic approach to measuring language model output quality. It ingests prompt-response pairs, applies configurable evaluation rubrics, and produces scored reports with statistical breakdowns.
+
+## Architecture
+
+- **Ingestion API** accepts evaluation datasets and queued jobs.
+- **Evaluation Engine** runs metrics in parallel across model outputs.
+- **Results Store** persists scores, explanations, and raw outputs for review.
+- **Analytics Dashboard** surfaces aggregate metrics with filtering by model, rubric, and time range.
+
+## Design Decisions
+
+Custom metric plugins are defined as Python classes implementing a shared interface. This allows teams to add domain-specific evaluation criteria without modifying the core engine. Redis-backed job queues provide backpressure handling for large evaluation runs.
+
+## Current Status
+
+The system is active and undergoing iteration. Recent improvements include streaming evaluation for real-time feedback during model development and confidence interval reporting for statistical rigor.

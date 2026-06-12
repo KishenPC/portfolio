@@ -1,0 +1,6 @@
+{
+  "id": "ai-infrastructure",
+  "title": "AI Infrastructure",
+  "description": "Designing and building systems that support AI-powered applications, from evaluation frameworks to model serving infrastructure.",
+  "skills": ["Python", "FastAPI", "Model Evaluation", "Prompt Engineering", "Vector Databases"]
+}

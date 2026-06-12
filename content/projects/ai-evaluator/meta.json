@@ -1,0 +1,14 @@
+{
+  "title": "AI Evaluator",
+  "summary": "An evaluation framework for benchmarking LLM outputs against human-annotated rubrics across multiple dimensions.",
+  "description": "AI Evaluator runs structured evaluations against language model outputs, comparing them to reference answers using semantic similarity, factual accuracy, and rubric-based scoring. It supports batch evaluation pipelines, custom metric plugins, and result aggregation with statistical confidence intervals.",
+  "tech": ["Python", "FastAPI", "PostgreSQL", "Docker", "Redis"],
+  "year": 2025,
+  "status": "active",
+  "featured": true,
+  "domain": "ai-infrastructure",
+  "links": {
+    "repo": "https://github.com/example/ai-evaluator"
+  },
+  "architectureRef": "ai-evaluator"
+}

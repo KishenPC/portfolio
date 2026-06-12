@@ -1,0 +1,6 @@
+{
+  "id": "full-stack",
+  "title": "Full Stack Engineering",
+  "description": "Building end-to-end web applications with modern frameworks, thoughtful API design, and production-grade infrastructure.",
+  "skills": ["React", "Next.js", "TypeScript", "PostgreSQL", "System Design"]
+}

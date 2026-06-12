@@ -1,0 +1,24 @@
+{
+  "nodes": [
+    { "id": "api", "label": "API Gateway", "type": "entrypoint" },
+    { "id": "scheduler", "label": "Scheduler", "type": "service" },
+    { "id": "worker", "label": "Worker Pool", "type": "service" },
+    { "id": "db", "label": "PostgreSQL", "type": "database" },
+    { "id": "cache", "label": "Redis", "type": "cache" },
+    { "id": "monitor", "label": "Monitor", "type": "observability" }
+  ],
+  "edges": [
+    { "source": "api", "target": "scheduler", "label": "submits jobs" },
+    { "source": "scheduler", "target": "db", "label": "persists DAG" },
+    { "source": "scheduler", "target": "cache", "label": "publishes tasks" },
+    { "source": "worker", "target": "cache", "label": "consumes tasks" },
+    { "source": "worker", "target": "scheduler", "label": "reports status" },
+    { "source": "monitor", "target": "cache", "label": "reads metrics" },
+    { "source": "monitor", "target": "db", "label": "queries state" }
+  ],
+  "metadata": {
+    "title": "Scheduling Platform",
+    "description": "Distributed job scheduling system architecture with DAG-based dependency management",
+    "domain": "systems"
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "year": 2020,
+    "title": "Started Software Engineering",
+    "description": "Began professional software development. Built foundational skills in web technologies and backend systems.",
+    "relatedProjects": []
+  },
+  {
+    "year": 2021,
+    "title": "First Production System",
+    "description": "Shipped a full-stack web application handling thousands of daily users. Learned about monitoring, deployments, and incident response.",
+    "relatedProjects": []
+  },
+  {
+    "year": 2022,
+    "title": "Transitioned to Infrastructure",
+    "description": "Shifted focus toward distributed systems and platform engineering. Began working with container orchestration and cloud infrastructure.",
+    "relatedProjects": []
+  },
+  {
+    "year": 2023,
+    "title": "Built Developer Tools Suite",
+    "description": "Designed and shipped a suite of CLI tools for improving team development workflows. The tools reduced onboarding time by 50%.",
+    "relatedProjects": ["dev-tools"]
+  },
+  {
+    "year": 2024,
+    "title": "Designed Scheduling Platform",
+    "description": "Architected and built a distributed job scheduling system handling complex dependency graphs. Learned about distributed consensus and fault tolerance.",
+    "relatedProjects": ["scheduling-platform"]
+  },
+  {
+    "year": 2025,
+    "title": "AI Infrastructure & System Design",
+    "description": "Built evaluation frameworks for LLM outputs and began documenting system design explorations as structured learning artifacts.",
+    "relatedProjects": ["ai-evaluator", "system-design"]
+  }
+]

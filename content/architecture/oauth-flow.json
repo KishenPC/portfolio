@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    { "id": "client", "label": "Client App", "type": "entrypoint" },
+    { "id": "auth-server", "label": "Auth Server", "type": "service" },
+    { "id": "resource-server", "label": "Resource Server", "type": "service" },
+    { "id": "token-store", "label": "Token Store", "type": "database" },
+    { "id": "idp", "label": "Identity Provider", "type": "external" }
+  ],
+  "edges": [
+    { "source": "client", "target": "auth-server", "label": "initiates OAuth" },
+    { "source": "auth-server", "target": "idp", "label": "redirects auth" },
+    { "source": "idp", "target": "auth-server", "label": "returns code" },
+    { "source": "auth-server", "target": "token-store", "label": "stores tokens" },
+    { "source": "client", "target": "resource-server", "label": "requests with token" },
+    { "source": "resource-server", "target": "token-store", "label": "validates token" }
+  ],
+  "metadata": {
+    "title": "OAuth Flow",
+    "description": "OAuth 2.0 authorization code flow with PKCE, token refresh, and stateless validation",
+    "domain": "full-stack"
+  }
+}

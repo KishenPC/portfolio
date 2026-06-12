@@ -1,0 +1,29 @@
+---
+title: Scheduling Platform
+summary: A distributed scheduling system
+---
+
+## Overview
+
+The Scheduling Platform is a distributed job scheduler designed for high-throughput environments. It accepts work units via gRPC, models them as nodes in a directed acyclic graph, and dispatches execution across configurable worker pools.
+
+## Architecture
+
+The system follows an event-driven architecture:
+
+- **API Gateway** receives job submissions and validates dependency constraints.
+- **Scheduler** maintains the DAG structure in PostgreSQL and publishes ready tasks to Redis queues.
+- **Worker Pool** consumes from Redis, executes tasks, and reports completion or failure back to the scheduler.
+- **Monitor** provides real-time observability into queue depth, worker utilization, and failure rates.
+
+## Constraints
+
+Jobs may depend on the completion of upstream tasks. Cycles are rejected at submission time. The scheduler must handle tens of thousands of concurrent DAG nodes without degrading latency for individual task dispatch.
+
+## Tradeoffs
+
+The team chose PostgreSQL for persistent DAG state rather than an in-memory graph database. This simplified operational overhead and allowed the scheduler to recover from crashes without data loss. The tradeoff was higher latency for graph traversal queries, mitigated by caching the active frontier in Redis.
+
+## Outcomes
+
+The platform reduced manual orchestration time by 80% and improved pipeline throughput by 3x compared to the previous cron-based system.

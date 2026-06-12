@@ -1,0 +1,6 @@
+{
+  "id": "systems",
+  "title": "Systems Thinking",
+  "description": "Designing distributed systems, reasoning about tradeoffs, and building architectures that scale with clarity.",
+  "skills": ["Distributed Systems", "Go", "Architecture Design", "Observability", "Kubernetes"]
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Scheduling Platform",
+  "summary": "A distributed scheduling system for managing complex dependency graphs across thousands of concurrent jobs.",
+  "description": "The Scheduling Platform orchestrates job execution across distributed worker pools. It models tasks as nodes in a dependency graph, supports retry policies with exponential backoff, and provides real-time monitoring of queue depth and throughput. Built on PostgreSQL for persistent state and Redis for transient scheduling metadata.",
+  "tech": ["Go", "PostgreSQL", "Redis", "gRPC", "Kubernetes"],
+  "year": 2024,
+  "status": "complete",
+  "featured": true,
+  "domain": "systems",
+  "links": {
+    "live": "https://example.com/scheduling-platform",
+    "repo": "https://github.com/example/scheduling-platform"
+  },
+  "architectureRef": "scheduling-platform"
+}

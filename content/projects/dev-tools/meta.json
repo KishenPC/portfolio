@@ -1,0 +1,13 @@
+{
+  "title": "Developer Tools",
+  "summary": "A suite of CLI utilities and IDE integrations for automating common development workflows.",
+  "description": "The Developer Tools suite addresses friction points in the daily development cycle: project scaffolding, environment management, dependency auditing, and deployment preview configuration. Each tool is designed to be composable and scriptable, with a focus on reducing cognitive overhead rather than adding configuration complexity.",
+  "tech": ["TypeScript", "Node.js", "React", "Commander.js"],
+  "year": 2023,
+  "status": "complete",
+  "featured": false,
+  "domain": "developer-tools",
+  "links": {
+    "repo": "https://github.com/example/dev-tools"
+  }
+}

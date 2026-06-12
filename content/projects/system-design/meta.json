@@ -1,0 +1,13 @@
+{
+  "title": "System Design",
+  "summary": "A portfolio of system design explorations covering distributed systems, API architecture, and infrastructure patterns.",
+  "description": "System Design captures architectural explorations and reference implementations for common distributed systems challenges. Each design doc includes context, constraints, tradeoffs, and an implementation sketch. The collection serves as both a learning artifact and a reference for future projects.",
+  "tech": ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL"],
+  "year": 2025,
+  "status": "active",
+  "featured": true,
+  "domain": "systems",
+  "links": {
+    "live": "https://example.com/system-design"
+  }
+}
