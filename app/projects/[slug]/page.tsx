@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { loadProjectPost } from "@/lib/mdx";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import MdxContent from "@/lib/mdx-render";
 import GhostLink from "@/components/ghost-link";
 import SectionReveal from "@/components/animations/section-reveal";
 import Header from "@/components/header";
@@ -48,9 +48,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          <div className="prose prose-lg max-w-[70ch] font-helvetica-now text-base text-ink leading-[1.5] [&_h2]:font-davinci [&_h2]:text-2xl [&_h2]:text-ink [&_h2]:mt-96 [&_h2]:mb-20 [&_p]:mb-20 [&_ul]:mb-20 [&_li]:mb-8">
-            <MDXRemote source={post.content} />
-          </div>
+          <MdxContent content={post.content} />
         </article>
       </SectionReveal>
 
