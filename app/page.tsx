@@ -2,6 +2,7 @@ import SectionReveal from "@/components/animations/section-reveal";
 import SectionTitle from "@/components/section-title";
 import PillButton from "@/components/pill-button";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -10,15 +11,19 @@ export default function Home() {
 
       {/* Hero Section */}
       <SectionReveal>
-        <section className="px-16 py-96 text-center">
-          <h1 className="font-davinci text-6xl font-medium text-ink mb-8 leading-tight">
-            Renaissance gallery on putty paper
-          </h1>
-          <p className="font-helvetica-now text-base text-graphite max-w-xl mx-auto mb-12">
-            Where every pixel is intentional. A minimal, editorial portfolio
-            celebrating the intersection of design and craft.
-          </p>
-          <PillButton href="#work">View Work</PillButton>
+        <section className="px-16 py-96 overflow-hidden">
+          <div className="max-w-[60vw]">
+            <h1 className="font-davinci text-6xl font-medium text-ink leading-[0.84] tracking-tight mb-16">
+              Renaissance gallery on putty paper
+            </h1>
+            <p className="font-davinci text-xl text-graphite opacity-50 max-w-lg mb-16">
+              Where every pixel is intentional. A minimal, editorial portfolio
+              celebrating the intersection of design and craft.
+            </p>
+            <div className="flex justify-end">
+              <PillButton href="#work">View Work</PillButton>
+            </div>
+          </div>
         </section>
       </SectionReveal>
 
@@ -30,14 +35,13 @@ export default function Home() {
         <section className="px-16 py-96">
           <SectionTitle className="mb-52">Featured Work</SectionTitle>
 
-          {/* Placeholder for featured projects */}
-          <div className="grid grid-cols-1 gap-96">
-            <div className="h-96 bg-bone rounded-md flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-96">
+            <div className="min-h-[400px] bg-bone rounded-lg flex items-center justify-center p-24">
               <p className="font-helvetica-now text-base text-graphite">
                 Project 1 — Coming Soon
               </p>
             </div>
-            <div className="h-96 bg-bone rounded-md flex items-center justify-center">
+            <div className="min-h-[400px] bg-bone rounded-lg flex items-center justify-center p-24">
               <p className="font-helvetica-now text-base text-graphite">
                 Project 2 — Coming Soon
               </p>
@@ -47,11 +51,7 @@ export default function Home() {
       </SectionReveal>
 
       {/* Footer */}
-      <footer className="px-16 py-20 bg-chalk border-t border-vellum text-center">
-        <p className="font-helvetica-now text-xs text-graphite">
-          © {new Date().getFullYear()} Structured. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }
