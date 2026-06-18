@@ -3,15 +3,25 @@ import "./globals.css";
 import LenisProvider from "@/components/lenis-provider";
 
 export const metadata = {
-  title: "Structured — Designer Portfolio",
+  title: {
+    default: "Kishen Pathiyan Cherumanal — Software Engineer",
+    template: "%s — Structured",
+  },
   description:
-    "Renaissance gallery on putty paper. A minimal, editorial portfolio celebrating intentional design.",
+    "Renaissance gallery on putty paper. A minimal, editorial portfolio celebrating intentional design and full-stack development by Kishen Pathiyan Cherumanal.",
   openGraph: {
-    title: "Structured — Designer Portfolio",
+    title: "Kishen Pathiyan Cherumanal — Software Engineer",
+    description:
+      "Renaissance gallery on putty paper. A minimal, editorial portfolio celebrating intentional design and full-stack development.",
+    url: "https://structured.example.com",
+    siteName: "Structured",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kishen Pathiyan Cherumanal — Software Engineer",
     description:
       "Renaissance gallery on putty paper. A minimal, editorial portfolio celebrating intentional design.",
-    url: "https://structured.example.com",
-    type: "website",
   },
 };
 

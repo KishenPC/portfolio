@@ -38,10 +38,14 @@
       }
     ]
   },
-  "include": [`r`n    "next-env.d.ts",`r`n    "**/*.ts",`r`n    "**/*.tsx",`r`n    ".next/types/**/*.ts"`r`n  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "references": [],
   "exclude": [
     "node_modules"
   ]
 }
-

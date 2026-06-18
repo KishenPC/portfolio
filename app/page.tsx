@@ -3,6 +3,13 @@ import SectionTitle from "@/components/section-title";
 import PillButton from "@/components/pill-button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  description:
+    "Where every pixel is intentional. A minimal, editorial portfolio celebrating the intersection of design and craft.",
+};
 
 export default function Home() {
   return (
@@ -21,7 +28,7 @@ export default function Home() {
               celebrating the intersection of design and craft.
             </p>
             <div className="flex justify-end">
-              <PillButton href="#work">View Work</PillButton>
+              <PillButton href="/projects">View Work</PillButton>
             </div>
           </div>
         </section>
@@ -32,20 +39,18 @@ export default function Home() {
 
       {/* Featured Projects Section */}
       <SectionReveal delay={0.1}>
-        <section className="px-16 py-96">
+        <section className="px-16 py-96" id="work">
           <SectionTitle className="mb-52">Featured Work</SectionTitle>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-96">
-            <div className="min-h-[400px] bg-bone rounded-lg flex items-center justify-center p-24">
+            <Link
+              href="/projects"
+              className="block min-h-[400px] bg-bone rounded-lg flex items-center justify-center p-24 hover:opacity-80 transition-opacity border border-vellum"
+            >
               <p className="font-helvetica-now text-base text-graphite">
-                Project 1 — Coming Soon
+                View all projects
               </p>
-            </div>
-            <div className="min-h-[400px] bg-bone rounded-lg flex items-center justify-center p-24">
-              <p className="font-helvetica-now text-base text-graphite">
-                Project 2 — Coming Soon
-              </p>
-            </div>
+            </Link>
           </div>
         </section>
       </SectionReveal>
