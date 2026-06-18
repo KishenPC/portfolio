@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="px-16 py-20 bg-chalk border-t border-vellum text-center">
+    <footer className="px-16 py-20 bg-chalk border-t border-vellum text-center" id="contact">
       <p className="font-helvetica-now text-xs text-graphite">
         © {new Date().getFullYear()} Structured. All rights reserved.
       </p>
