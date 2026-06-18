@@ -3,6 +3,7 @@ import SectionTitle from "@/components/section-title";
 import PillButton from "@/components/pill-button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AboutSection from "@/components/about-section";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -56,6 +57,8 @@ export default function Home() {
       </SectionReveal>
 
       {/* Footer */}
+      <AboutSection />
+
       <Footer />
     </main>
   );
