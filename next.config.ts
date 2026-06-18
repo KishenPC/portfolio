@@ -9,8 +9,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.externals.push("@node-rs/canvas");
+    if (isServer) {
+      config.externals.push("coffee-script");
+      config.externals.push("toml");
+    }
     return config;
   },
 };
