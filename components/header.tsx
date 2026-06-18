@@ -1,3 +1,5 @@
+import GhostLink from "@/components/ghost-link";
+
 interface HeaderProps {
   className?: string;
 }
@@ -6,36 +8,28 @@ export default function Header({ className = "" }: HeaderProps) {
   return (
     <header
       className={`
-        flex items-center justify-between 
+        sticky top-0 z-50
+        flex items-center justify-between
         px-16 py-8
         border-b border-vellum
         bg-putty
         ${className}
       `}
     >
-      <h1 className="font-davinci text-2xl font-medium text-ink">
+      <span className="font-davinci text-2xl font-medium text-ink">
         Structured
-      </h1>
+      </span>
 
       <nav className="flex items-center gap-8">
-        <a
-          href="#work"
-          className="font-helvetica-now text-sm text-ink hover:opacity-80 transition-opacity"
-        >
+        <GhostLink href="#work" className="text-sm">
           Work
-        </a>
-        <a
-          href="#about"
-          className="font-helvetica-now text-sm text-ink hover:opacity-80 transition-opacity"
-        >
+        </GhostLink>
+        <GhostLink href="#about" className="text-sm">
           About
-        </a>
-        <a
-          href="#contact"
-          className="font-helvetica-now text-sm text-ink hover:opacity-80 transition-opacity"
-        >
+        </GhostLink>
+        <GhostLink href="#contact" className="text-sm">
           Contact
-        </a>
+        </GhostLink>
       </nav>
     </header>
   );
