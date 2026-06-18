@@ -72,6 +72,20 @@ body {
   color: var(--color-paper);
 }
 
+.dark-section a {
+  color: var(--color-paper);
+}
+
+.dark-section a:hover {
+  opacity: 0.7;
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3 {
+  color: var(--color-paper);
+}
+
 /* Typography reset */
 h1,
 h2,
@@ -147,5 +161,33 @@ html.lenis [data-lenis-prevent] textarea {
 
   h2 {
     font-size: var(--text-heading-sm);
+  }
+}
+
+@media (max-width: 640px) {
+  .text-6xl {
+    font-size: var(--text-heading-lg) !important;
+  }
+
+  .text-5xl {
+    font-size: var(--text-heading) !important;
+  }
+
+  .text-4xl {
+    font-size: var(--text-heading-sm) !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  header,
+  footer,
+  nav {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
   }
 }
