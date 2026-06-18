@@ -1,0 +1,26 @@
+---
+title: "Mobile Crypto Tracker"
+date: "2025-06-15"
+description: "Cross-platform mobile app for real-time cryptocurrency tracking with portfolio management, built with React Native and Expo."
+tags: ["Mobile", "React Native", "Expo", "TypeScript"]
+---
+
+## Overview
+
+Developed a cross-platform mobile application for tracking cryptocurrency prices and managing digital asset portfolios. Features real-time price updates, portfolio analytics, and push notifications for price alerts.
+
+## Design Approach
+
+Focused on a clean, data-dense UI optimized for quick price scanning. Used React Native's FlatList with optimized rendering to handle hundreds of coins without jank. Implemented a local SQLite cache for offline access to recently viewed prices.
+
+## Technical Stack
+
+- **Framework:** React Native with Expo
+- **State Management:** Zustand
+- **Data:** CoinGecko API + WebSocket streams
+- **Storage:** AsyncStorage + SQLite
+- **Charts:** Victory Native
+
+## Key Learnings
+
+WebSocket connection management on mobile required careful handling of app state transitions. Background price polling needed battery-conscious scheduling and intelligent retry logic for spotty connections.

@@ -1,0 +1,26 @@
+---
+title: "Recommendation Engine"
+date: "2025-09-10"
+description: "Built a high-performance recommendation engine using Qdrant vector database and NestJS for semantic product discovery."
+tags: ["Backend", "NestJS", "Qdrant", "Recommendation Systems"]
+---
+
+## Overview
+
+Built a semantic recommendation engine that processes user preferences and product embeddings to deliver context-aware suggestions. The system uses Qdrant as a vector database for similarity search and NestJS for the API layer.
+
+## Design Approach
+
+Designed a modular architecture with separate services for embedding generation, vector indexing, and query processing. The recommendation pipeline handles real-time requests with sub-100ms latency through aggressive caching and pre-computed embeddings.
+
+## Technical Stack
+
+- **Backend:** NestJS with TypeScript
+- **Vector Database:** Qdrant
+- **Embeddings:** Sentence Transformers
+- **Caching:** Redis
+- **Deployment:** Docker on AWS EC2
+
+## Key Learnings
+
+Optimizing vector search for high-throughput production use required careful index configuration and query batching. Qdrant's HNSW parameters had a significant impact on recall-quality tradeoffs.
