@@ -1,36 +1,32 @@
-import { ReactNode } from "react";
+import type { Metadata } from "next";
 import "./globals.css";
-import LenisProvider from "@/components/lenis-provider";
 
-export const metadata = {
-  title: "Structured — Designer Portfolio",
-  description:
-    "Renaissance gallery on putty paper. A minimal, editorial portfolio celebrating intentional design.",
-  openGraph: {
-    title: "Structured — Designer Portfolio",
-    description:
-      "Renaissance gallery on putty paper. A minimal, editorial portfolio celebrating intentional design.",
-    url: "https://structured.example.com",
-    type: "website",
-  },
+export const metadata: Metadata = {
+  title: "Wireframe",
+  description: "Layout wireframe",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        {/* Preconnect fonts for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&f[]=satoshi@400,500,700&f[]=jetbrains-mono@400,500&display=swap"
         />
       </head>
-      <body className="bg-putty text-ink">
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+      <body className="bg-bg text-ink font-body antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-bg focus:text-ink focus:px-3 focus:py-2 focus:border focus:border-line"
+        >
+          Skip to content
+        </a>
+        {children}
       </body>
     </html>
   );
