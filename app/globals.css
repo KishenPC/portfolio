@@ -4,10 +4,11 @@
   --color-bg: #ffffff;
   --color-surface: #fafafa;
   --color-ink: #111111;
-  --color-ink-2: #666666;
-  --color-ink-3: #8a8a8a;
-  --color-line: #e8e8e8;
+  --color-ink-2: #4b5563;
+  --color-ink-3: #6b7280;
+  --color-line: #e5e7eb;
   --color-placeholder: #e4e4e4;
+  --color-accent: #4a6d8a;
 
   --font-display: "Cabinet Grotesk", system-ui, sans-serif;
   --font-body: "Satoshi", system-ui, sans-serif;
