@@ -1,7 +1,6 @@
 {
-  "name": "structured-portfolio",
-  "version": "1.0.0",
-  "description": "Renaissance gallery on putty paper—designer portfolio with editorial aesthetics",
+  "name": "portfolio",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,23 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.1",
-    "gray-matter": "^2.0.1",
-    "gsap": "^3.12.2",
-    "lenis": "^1.1.16",
-    "lucide-react": "^0.394.0",
-    "next": "^15.5.19",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.0"
+    "next": "^15",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.1",
-    "@types/node": "^20.10.0",
-    "@types/react": "18.2.79",
-    "@types/react-dom": "18.2.25",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
