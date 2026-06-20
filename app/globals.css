@@ -12,9 +12,9 @@
   --color-accent-hover: #3f5d75;
   --color-accent-focus: #4a6d8a;
 
-  --font-display: "Cabinet Grotesk", system-ui, sans-serif;
-  --font-body: "Satoshi", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: var(--font-cabinet-grotesk), system-ui, sans-serif;
+  --font-body: var(--font-satoshi), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
   --text-hero: clamp(6rem, 10vw, 10rem) / 0.95;
   --text-hero-subtitle: clamp(1.75rem, 3vw, 2.5rem) / 1.1;
