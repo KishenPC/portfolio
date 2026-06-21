@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
-
 export default function Page() {
-  redirect("/wireframe");
+  return <main id="main" className="min-h-screen" />;
 }

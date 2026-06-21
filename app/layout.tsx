@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { getPersonal } from "@/lib/data";
 import "./globals.css";
+
+const personal = getPersonal();
 
 const cabinetGrotesk = localFont({
   src: [
@@ -48,8 +51,23 @@ const jetbrainsMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Wireframe",
-  description: "Layout wireframe",
+  title: {
+    default: `${personal.name} · ${personal.role}`,
+    template: `%s · ${personal.name}`,
+  },
+  description: personal.tagline,
+  openGraph: {
+    title: `${personal.name} · ${personal.role}`,
+    description: personal.tagline,
+    type: "website",
+    siteName: personal.name,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: personal.name,
+    description: personal.tagline,
+  },
 };
 
 export default function RootLayout({
