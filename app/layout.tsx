@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { getPersonal } from "@/lib/data";
+import { ReducedMotionGate } from "@/components/motion";
 import "./globals.css";
 
 const personal = getPersonal();
@@ -86,7 +87,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {children}
+        <ReducedMotionGate>{children}</ReducedMotionGate>
       </body>
     </html>
   );
