@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout";
 import { Body, Heading, Mono, SectionLabel } from "@/components/typography";
+import { FadeUp } from "@/components/motion";
 import { getPersonal } from "@/lib/data";
 
 /**
@@ -11,6 +12,10 @@ import { getPersonal } from "@/lib/data";
  * → intro paragraphs → education aside. Body text is `#111111` on `#FFFFFF`
  * per PLAN.md accessibility requirements (primary text for body copy, per
  * DESIGN.md Accessibility Rules).
+ *
+ * Motion (PLAN.md): paragraph fade-up on enter; education aside follows with
+ * a small delay. Heading stays static as the section anchor. Reduced-motion
+ * → static, no info loss. One active animation per viewport.
  */
 export function Introduction() {
   const personal = getPersonal();
@@ -21,16 +26,20 @@ export function Introduction() {
       <Heading as="h2" id="intro-heading" className="mt-10">
         [Introduction]
       </Heading>
-      <div className="mt-10 space-y-6">
-        {personal.intro.map((paragraph) => (
-          <Body key={paragraph} scale="body" className="leading-relaxed">
-            {paragraph}
-          </Body>
-        ))}
-      </div>
-      <Mono as="p" className="mt-10">
-        Education: {education.degree} {education.field}, {education.status}
-      </Mono>
+      <FadeUp className="mt-10">
+        <div className="space-y-6">
+          {personal.intro.map((paragraph) => (
+            <Body key={paragraph} scale="body" className="leading-relaxed">
+              {paragraph}
+            </Body>
+          ))}
+        </div>
+      </FadeUp>
+      <FadeUp delay={0.15} className="mt-10">
+        <Mono as="p">
+          Education: {education.degree} {education.field}, {education.status}
+        </Mono>
+      </FadeUp>
     </Section>
   );
 }

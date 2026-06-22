@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "motion/react";
 import { useReducedMotionContext } from "./reduced-motion-gate";
+import { useIsoLayoutEffect } from "./use-iso-layout-effect";
 
 export interface RevealTextProps {
   text: string;
@@ -41,7 +42,7 @@ export function RevealText({
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useIsoLayoutEffect(() => setMounted(true), []);
 
   const words = text.split(" ");
   const shouldAnimate = mounted && !reduced;

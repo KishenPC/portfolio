@@ -1,5 +1,6 @@
 import { Section, Stack } from "@/components/layout";
 import { Body, Heading, SectionLabel } from "@/components/typography";
+import { FadeUp } from "@/components/motion";
 import { getStack } from "@/lib/data";
 import { StackGroup } from "./stack-group";
 
@@ -17,6 +18,11 @@ import { StackGroup } from "./stack-group";
  * No skill bars, ratings, percentages, or logo walls without structure — the
  * grouped definition-list rhythm keeps this scannable and avoids the
  * AI-portfolio tells listed in DESIGN.md.
+ *
+ * Motion (PLAN.md): staggered group reveal — each group fades up as it
+ * enters the viewport, with a small incremental delay so adjacent groups
+ * cascade when several are in view at once. Heading + framing line stay
+ * static. Reduced-motion → static, no info loss.
  */
 export function SkillStack() {
   const groups = getStack();
@@ -34,8 +40,10 @@ export function SkillStack() {
       </Body>
 
       <Stack gap="xl" className="mt-16">
-        {groups.map((group) => (
-          <StackGroup key={group.name} group={group} />
+        {groups.map((group, i) => (
+          <FadeUp key={group.name} delay={Math.min(i * 0.06, 0.24)}>
+            <StackGroup group={group} />
+          </FadeUp>
         ))}
       </Stack>
     </Section>

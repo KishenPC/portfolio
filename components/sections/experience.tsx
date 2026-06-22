@@ -1,5 +1,6 @@
 import { Section, Stack } from "@/components/layout";
 import { Body, Heading, Mono, SectionLabel } from "@/components/typography";
+import { FadeUp } from "@/components/motion";
 import { getExperience } from "@/lib/data";
 
 /**
@@ -17,6 +18,9 @@ import { getExperience } from "@/lib/data";
  * Highlights render as a semantic `<ul>` (list-disc, list-inside) so
  * screen-readers announce them as a related group; the muted marker keeps
  * the visual rhythm quiet per DESIGN.md restraint principles.
+ *
+ * Motion (PLAN.md): fade-up on each entry block as it enters the viewport.
+ * Heading stays static. Reduced-motion → static, no info loss.
  */
 export function Experience() {
   const entries = getExperience();
@@ -30,8 +34,8 @@ export function Experience() {
       </Heading>
 
       <Stack gap="xl" className="mt-10">
-        {entries.map((entry) => (
-          <div key={`${entry.role}-${entry.org}`}>
+        {entries.map((entry, i) => (
+          <FadeUp key={`${entry.role}-${entry.org}-${i}`}>
             <Heading as="h3" scale="card-title">
               {entry.role} · {entry.org}
             </Heading>
@@ -59,7 +63,7 @@ export function Experience() {
                 </Body>
               ))}
             </ul>
-          </div>
+          </FadeUp>
         ))}
       </Stack>
     </Section>

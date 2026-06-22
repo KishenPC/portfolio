@@ -1,6 +1,7 @@
 import type { Certification } from "@/lib/types";
 import { Section } from "@/components/layout";
 import { Body, Heading, Mono, SectionLabel } from "@/components/typography";
+import { FadeUp } from "@/components/motion";
 import { getCertifications } from "@/lib/data";
 
 /**
@@ -22,6 +23,10 @@ import { getCertifications } from "@/lib/data";
  * chrome and use placeholders, consistent with the other section components;
  * real copy arrives with `PERSONAL_INFO.md` content in Task 21. All entry
  * data flows from `certifications.ts` via the typed data layer.
+ *
+ * Motion (PLAN.md): row fade-up — each row fades up as it enters the
+ * viewport with a small incremental delay so adjacent rows cascade. Heading
+ * + framing line stay static. Reduced-motion → static, no info loss.
  */
 export function Certifications() {
   const certifications = getCertifications();
@@ -43,8 +48,10 @@ export function Certifications() {
       </Body>
 
       <div className="mt-10 divide-y divide-line border-b border-line">
-        {certifications.map((cert) => (
-          <CertificationEntry key={cert.name} cert={cert} />
+        {certifications.map((cert, i) => (
+          <FadeUp key={`${cert.name}-${i}`} delay={Math.min(i * 0.06, 0.24)}>
+            <CertificationEntry cert={cert} />
+          </FadeUp>
         ))}
       </div>
     </Section>

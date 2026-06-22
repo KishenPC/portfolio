@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout";
 import { Heading, Mono, SectionLabel } from "@/components/typography";
+import { FadeUp } from "@/components/motion";
 import { getAwards } from "@/lib/data";
 
 /**
@@ -17,6 +18,9 @@ import { getAwards } from "@/lib/data";
  * with the Introduction / Experience / SkillStack components; real copy
  * arrives with `PERSONAL_INFO.md` content in Task 21. All award data flows
  * from `awards.ts` via the typed data layer.
+ *
+ * Motion (PLAN.md): minimal fade-up on the list as it enters the viewport.
+ * Heading stays static. Reduced-motion → static, no info loss.
  */
 export function Awards() {
   const awards = getAwards();
@@ -29,18 +33,20 @@ export function Awards() {
         [Recognition]
       </Heading>
 
-      <ul className="mt-10 space-y-8">
-        {awards.map((award) => (
-          <li key={award.name}>
-            <Heading as="h3" scale="card-title">
-              {award.name}
-            </Heading>
-            <Mono as="p" className="mt-1">
-              {award.result}
-            </Mono>
-          </li>
-        ))}
-      </ul>
+      <FadeUp className="mt-10">
+        <ul className="space-y-8">
+          {awards.map((award, i) => (
+            <li key={`${award.name}-${i}`}>
+              <Heading as="h3" scale="card-title">
+                {award.name}
+              </Heading>
+              <Mono as="p" className="mt-1">
+                {award.result}
+              </Mono>
+            </li>
+          ))}
+        </ul>
+      </FadeUp>
     </Section>
   );
 }

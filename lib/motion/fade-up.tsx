@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { useInView } from "motion/react";
 import { useReducedMotionContext } from "./reduced-motion-gate";
+import { useIsoLayoutEffect } from "./use-iso-layout-effect";
 
 export interface FadeUpProps {
   children: ReactNode;
@@ -46,7 +47,7 @@ export function FadeUp({
   const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useIsoLayoutEffect(() => setMounted(true), []);
 
   const shouldAnimate = mounted && !reduced;
   const easing = "cubic-bezier(0.22, 1, 0.36, 1)";

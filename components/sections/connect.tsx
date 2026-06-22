@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout";
 import { Body, Eyebrow, Heading, Mono, SectionLabel } from "@/components/typography";
+import { FadeUp } from "@/components/motion";
 import { LetsConnect } from "@/components/contact/lets-connect";
 import { getPersonal } from "@/lib/data";
 
@@ -24,6 +25,11 @@ import { getPersonal } from "@/lib/data";
  * The section heading and framing line are section chrome and use
  * placeholders, consistent with the other section components; real copy
  * arrives with `PERSONAL_INFO.md` content in Task 21.
+ *
+ * Motion (PLAN.md): closing fade-up on the form/elsewhere grid, then the
+ * footer follows with a small delay. Heading + framing line stay static.
+ * Magnetic links are applied in Task 20 (desktop-only). Reduced-motion →
+ * static, no info loss.
  */
 export function Connect() {
   const personal = getPersonal();
@@ -48,48 +54,52 @@ export function Connect() {
         collaboration, or a conversation about building things.]
       </Body>
 
-      <div className="mt-12 grid gap-10 md:grid-cols-12 md:items-start">
-        <div className="md:col-span-7">
-          <LetsConnect email={personal.email} />
-        </div>
+      <FadeUp className="mt-12">
+        <div className="grid gap-10 md:grid-cols-12 md:items-start">
+          <div className="md:col-span-7">
+            <LetsConnect email={personal.email} />
+          </div>
 
-        <div className="md:col-span-5">
-          <Eyebrow as="div" className="mb-4">
-            Elsewhere
-          </Eyebrow>
-          <ul className="space-y-4">
-            {elsewhere.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  {...(link.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  className="inline-block rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  {link.label}
-                  {link.external ? (
-                    <span aria-hidden="true" className="ml-0.5">
-                      {"\u2197"}
-                    </span>
-                  ) : null}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <Mono as="p" className="mt-8">
-            [Prefer email? The form opens your mail client with everything
-            prefilled.]
-          </Mono>
+          <div className="md:col-span-5">
+            <Eyebrow as="div" className="mb-4">
+              Elsewhere
+            </Eyebrow>
+            <ul className="space-y-4">
+              {elsewhere.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="inline-block rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    {link.label}
+                    {link.external ? (
+                      <span aria-hidden="true" className="ml-0.5">
+                        {"\u2197"}
+                      </span>
+                    ) : null}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Mono as="p" className="mt-8">
+              [Prefer email? The form opens your mail client with everything
+              prefilled.]
+            </Mono>
+          </div>
         </div>
-      </div>
+      </FadeUp>
 
-      <footer className="mt-32 flex flex-wrap justify-between gap-4 border-t border-line pt-10 font-mono text-caption text-ink-3">
-        <span>
-          {personal.name} · © {year}
-        </span>
-        <span>[Built with note]</span>
-      </footer>
+      <FadeUp delay={0.15}>
+        <footer className="mt-32 flex flex-wrap justify-between gap-4 border-t border-line pt-10 font-mono text-caption text-ink-3">
+          <span>
+            {personal.name} · © {year}
+          </span>
+          <span>[Built with note]</span>
+        </footer>
+      </FadeUp>
     </Section>
   );
 }
