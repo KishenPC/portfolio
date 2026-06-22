@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
 import { useReducedMotionContext } from "./reduced-motion-gate";
 
 export interface MagneticLinkProps {
@@ -24,19 +23,22 @@ export interface MagneticLinkProps {
  *
  * **Desktop-only.** Gates on `(pointer: fine)` via `matchMedia` so touch
  * devices get a plain `<a>` — no janky touch-move transforms, no unused
- * Motion listeners. Reduced-motion users also get a plain `<a>`. The
- * `matchMedia` listener is live, so docking a mouse to a touch laptop
- * enables the effect without a reload.
+ * listeners. Reduced-motion users also get a plain `<a>`. The `matchMedia`
+ * listener is live, so docking a mouse to a touch laptop enables the effect
+ * without a reload.
  *
- * Uses Motion's `useSpring` for smooth displacement + return. The spring
- * config (`stiffness: 200, damping: 15`) gives a quick, precise pull that
- * eases back gently — subtle, not springy/bouncy, matching DESIGN.md's
- * "Subtle only" hover constraint. `transform` only (no layout shift); the
- * link's reserved space never changes.
+ * **Implementation:** Uses direct DOM manipulation (`el.style.transform`) +
+ * CSS transitions instead of Motion's `useMotionValue`/`useSpring`/`motion.a`.
+ * This avoids pulling the Motion DOM component (~40 KB gzip) into the initial
+ * bundle. The visual effect is equivalent: a quick follow on pointer move
+ * (`0.15s ease-out`) and a gentle spring-back return on pointer leave
+ * (`0.4s cubic-bezier(0.22, 1, 0.36, 1)` — the same ease-out-expo curve used
+ * across the site's motion primitives). No re-renders — transform is set
+ * directly on the element via ref.
  *
- * Before mount, renders a plain `<a>` (progressive enhancement). After
- * mount + desktop + not-reduced, swaps to `motion.a` with spring-driven
- * `x`/`y` transforms.
+ * `transform` only (no layout shift); the link's reserved space never
+ * changes. Before mount + desktop + not-reduced, renders a plain `<a>`
+ * (progressive enhancement).
  */
 export function MagneticLink({
   children,
@@ -49,11 +51,6 @@ export function MagneticLink({
   const reduced = useReducedMotionContext();
   const ref = useRef<HTMLAnchorElement>(null);
   const [enabled, setEnabled] = useState(false);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 200, damping: 15 });
-  const springY = useSpring(y, { stiffness: 200, damping: 15 });
 
   useEffect(() => {
     if (reduced) {
@@ -73,13 +70,17 @@ export function MagneticLink({
     const rect = el.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
-    x.set(((e.clientX - cx) / rect.width) * strength);
-    y.set(((e.clientY - cy) / rect.height) * strength);
+    const x = ((e.clientX - cx) / rect.width) * strength;
+    const y = ((e.clientY - cy) / rect.height) * strength;
+    el.style.transition = "transform 0.15s ease-out";
+    el.style.transform = `translate(${x}px, ${y}px)`;
   }
 
   function handlePointerLeave() {
-    x.set(0);
-    y.set(0);
+    const el = ref.current;
+    if (!el) return;
+    el.style.transition = "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)";
+    el.style.transform = "translate(0px, 0px)";
   }
 
   if (!enabled) {
@@ -91,7 +92,7 @@ export function MagneticLink({
   }
 
   return (
-    <motion.a
+    <a
       ref={ref}
       href={href}
       className={className}
@@ -99,9 +100,8 @@ export function MagneticLink({
       rel={rel}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      style={{ x: springX, y: springY }}
     >
       {children}
-    </motion.a>
+    </a>
   );
 }

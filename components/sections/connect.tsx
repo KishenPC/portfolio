@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout";
 import { Body, Eyebrow, Heading, Mono, SectionLabel } from "@/components/typography";
 import { FadeUp } from "@/components/motion";
+import { MagneticLink } from "@/lib/motion/magnetic-link";
 import { LetsConnect } from "@/components/contact/lets-connect";
 import { getPersonal } from "@/lib/data";
 
@@ -26,10 +27,13 @@ import { getPersonal } from "@/lib/data";
  * placeholders, consistent with the other section components; real copy
  * arrives with `PERSONAL_INFO.md` content in Task 21.
  *
- * Motion (PLAN.md): closing fade-up on the form/elsewhere grid, then the
- * footer follows with a small delay. Heading + framing line stay static.
- * Magnetic links are applied in Task 20 (desktop-only). Reduced-motion →
- * static, no info loss.
+ * Motion (PLAN.md):
+ * - Closing fade-up on the form/elsewhere grid, then the footer follows with
+ *   a small delay. Heading + framing line stay static.
+ * - Magnetic links on the elsewhere section (desktop-only, gated by
+ *   `(pointer: fine)` inside `MagneticLink`; touch / reduced-motion → plain
+ *   `<a>` with identical styling).
+ * Reduced-motion → static, no info loss.
  */
 export function Connect() {
   const personal = getPersonal();
@@ -40,6 +44,9 @@ export function Connect() {
     { label: "LinkedIn", href: personal.linkedin, external: true },
     { label: "Email", href: `mailto:${personal.email}`, external: false },
   ];
+
+  const linkClass =
+    "inline-block rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
 
   return (
     <Section id="connect" width="content" className="border-b border-line">
@@ -67,12 +74,12 @@ export function Connect() {
             <ul className="space-y-4">
               {elsewhere.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <MagneticLink
                     href={link.href}
+                    className={linkClass}
                     {...(link.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="inline-block rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   >
                     {link.label}
                     {link.external ? (
@@ -80,7 +87,7 @@ export function Connect() {
                         {"\u2197"}
                       </span>
                     ) : null}
-                  </a>
+                  </MagneticLink>
                 </li>
               ))}
             </ul>

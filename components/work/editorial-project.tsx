@@ -1,5 +1,6 @@
 import type { Project } from "@/lib/types";
 import { Body, Eyebrow, Heading } from "@/components/typography";
+import { MaskReveal } from "@/components/motion";
 import { KeywordCluster, LinkRow, MetricRow, ProjectImage } from "./index";
 
 export interface EditorialProjectProps {
@@ -17,6 +18,14 @@ export interface EditorialProjectProps {
  * projects dominate and editorial projects recede. No narrative arc, no
  * expandable detail — just the essentials. Content comes entirely from
  * `projects.ts` via props.
+ *
+ * Motion (PLAN.md Work Editorial):
+ * - **Image mask reveal:** The screenshot is wrapped in `MaskReveal` — a
+ *   bottom-to-top wipe on enter.
+ * - **Magnetic links:** `LinkRow` is rendered with `magnetic` enabled. The
+ *   magnetic effect is desktop-only (gated by `(pointer: fine)` inside
+ *   `MagneticLink`) and disabled for reduced-motion / touch users, who get
+ *   plain `<a>` links with identical styling.
  */
 export function EditorialProject({ project }: EditorialProjectProps) {
   const [screenshot] = project.screenshots;
@@ -29,7 +38,11 @@ export function EditorialProject({ project }: EditorialProjectProps) {
 
       <div className="grid gap-8 md:grid-cols-12 md:items-start">
         <div className="md:col-span-7">
-          {screenshot ? <ProjectImage image={screenshot} /> : null}
+          {screenshot ? (
+            <MaskReveal>
+              <ProjectImage image={screenshot} />
+            </MaskReveal>
+          ) : null}
         </div>
 
         <div className="md:col-span-5">
@@ -43,7 +56,7 @@ export function EditorialProject({ project }: EditorialProjectProps) {
 
           <KeywordCluster keywords={project.keywords} className="mt-5" />
           <MetricRow metrics={project.metrics} className="mt-8" />
-          <LinkRow links={project.links} className="mt-8" />
+          <LinkRow links={project.links} magnetic className="mt-8" />
         </div>
       </div>
     </article>

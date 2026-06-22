@@ -8,6 +8,7 @@ export { useReducedMotion } from "@/lib/motion/use-reduced-motion";
 export { useIsoLayoutEffect } from "@/lib/motion/use-iso-layout-effect";
 export { RevealText, type RevealTextProps } from "@/lib/motion/reveal-text";
 export { FadeUp, type FadeUpProps } from "@/lib/motion/fade-up";
+export { MaskReveal, type MaskRevealProps } from "@/lib/motion/mask-reveal";
 
 // NOTE: `ScrollPin` and `MagneticLink` are intentionally NOT re-exported from
 // this barrel. They import `gsap` / `gsap/ScrollTrigger`, which has no
