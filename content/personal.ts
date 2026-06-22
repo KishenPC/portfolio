@@ -14,7 +14,7 @@ import type { PersonalInfo } from "@/lib/types";
  * Introduction section so the hero hooks and the intro elaborates.
  */
 export const personal: PersonalInfo = {
-  name: "Kishen Pathiyan Cherumanal",
+  name: "Kishen PC",
   role: "Computer Science Undergraduate",
   location: "India",
   github: "https://github.com/KishenPC",

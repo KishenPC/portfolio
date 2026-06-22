@@ -96,15 +96,6 @@ export interface StackGroup {
   items: StackItem[];
 }
 
-// ─── Awards ─────────────────────────────────────────────────────────────────
-
-export interface Award {
-  name: string;
-  result: string;
-  context?: string;
-  date?: string;
-}
-
 // ─── Certifications ─────────────────────────────────────────────────────────
 
 export interface Certification {

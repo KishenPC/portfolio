@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fraunces } from "next/font/google";
 import localFont from "next/font/local";
 import { getPersonal } from "@/lib/data";
 import { ReducedMotionGate } from "@/components/motion";
@@ -6,20 +7,11 @@ import "./globals.css";
 
 const personal = getPersonal();
 
-const cabinetGrotesk = localFont({
-  src: [
-    {
-      path: "./fonts/cabinet-grotesk-500.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/cabinet-grotesk-700.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-cabinet-grotesk",
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  style: ["normal"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -51,22 +43,24 @@ const jetbrainsMono = localFont({
   display: "swap",
 });
 
+const shortName = "Kishen";
+
 export const metadata: Metadata = {
   title: {
-    default: `${personal.name} · ${personal.role}`,
-    template: `%s · ${personal.name}`,
+    default: shortName,
+    template: `%s · ${shortName}`,
   },
   description: personal.tagline,
   openGraph: {
-    title: `${personal.name} · ${personal.role}`,
+    title: shortName,
     description: personal.tagline,
     type: "website",
-    siteName: personal.name,
+    siteName: shortName,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: personal.name,
+    title: shortName,
     description: personal.tagline,
   },
 };
@@ -79,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cabinetGrotesk.variable} ${satoshi.variable} ${jetbrainsMono.variable} bg-bg text-ink font-body antialiased`}
+        className={`${fraunces.variable} ${satoshi.variable} ${jetbrainsMono.variable} bg-bg text-ink font-body antialiased`}
       >
         <a
           href="#main"

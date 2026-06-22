@@ -30,7 +30,7 @@ export interface BodyProps {
 
 /**
  * Body text primitive. Color is intentionally not baked in — it inherits
- * `text-ink` (#111111, primary) from the root, per DESIGN.md Accessibility
+ * `text-ink` (#1A1612, primary) from the root, per DESIGN.md Accessibility
  * Rules. Pass `text-ink-2` via `className` for secondary/supporting copy
  * (descriptions, summaries, metadata).
  */

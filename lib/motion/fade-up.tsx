@@ -14,12 +14,21 @@ export interface FadeUpProps {
   distance?: number;
   /** Animation duration in seconds. @default 0.6 */
   duration?: number;
+  /**
+   * Gate the reveal on an external signal. While `false`, the block stays
+   * hidden (opacity 0, translated down) even if already in view; flipping
+   * to `true` releases the transition. Used by the Hero to defer its
+   * supporting copy until the intro-loader handshake (`done`) fires.
+   * @default true
+   */
+  active?: boolean;
 }
 
 /**
  * `FadeUp` — the workhorse reveal: a content block fades in and translates
- * up when it enters the viewport. Used by Introduction, Experience, Skill
- * Stack, Awards, Certifications, and Connect sections (PLAN.md Motion map).
+ * up when it enters the viewport. Used by Hero (gated on the intro-loader
+ * handshake via `active`), Introduction, Experience, Skill Stack,
+ * Certifications, and Connect sections (PLAN.md Motion map).
  *
  * **Reduced motion / no-JS:** Before hydration or when `prefers-reduced-
  * motion` is on, the content renders as a plain `div` with no inline styles
@@ -41,6 +50,7 @@ export function FadeUp({
   delay = 0,
   distance = 1.25,
   duration = 0.6,
+  active = true,
 }: FadeUpProps) {
   const reduced = useReducedMotionContext();
   const ref = useRef<HTMLDivElement>(null);
@@ -50,6 +60,7 @@ export function FadeUp({
   useIsoLayoutEffect(() => setMounted(true), []);
 
   const shouldAnimate = mounted && !reduced;
+  const show = active !== false && inView;
   const easing = "cubic-bezier(0.22, 1, 0.36, 1)";
 
   return (
@@ -59,8 +70,8 @@ export function FadeUp({
       style={
         shouldAnimate
           ? {
-              opacity: inView ? 1 : 0,
-              transform: inView
+              opacity: show ? 1 : 0,
+              transform: show
                 ? "translateY(0)"
                 : `translateY(${distance}rem)`,
               transition: `opacity ${duration}s ${easing} ${delay}s, transform ${duration}s ${easing} ${delay}s`,

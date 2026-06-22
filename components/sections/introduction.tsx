@@ -9,7 +9,7 @@ import { getPersonal } from "@/lib/data";
  * the paragraphs. Education is a quiet mono aside.
  *
  * Hierarchy matches the approved wireframe: section label → `<h2>` heading
- * → intro paragraphs → education aside. Body text is `#111111` on `#FFFFFF`
+ * → intro paragraphs → education aside. Body text is `#1A1612` on `#F7F3EA`
  * per PLAN.md accessibility requirements (primary text for body copy, per
  * DESIGN.md Accessibility Rules).
  *

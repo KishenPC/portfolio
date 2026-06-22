@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 export type HeadingLevel = "h1" | "h2" | "h3" | "h4";
 export type HeadingScale =
@@ -37,6 +37,7 @@ export interface HeadingProps {
   /** Required for `aria-labelledby` wiring on the parent `Section`. */
   id?: string;
   className?: string;
+  style?: CSSProperties;
   children?: ReactNode;
 }
 
@@ -50,6 +51,7 @@ export function Heading({
   scale,
   id,
   className,
+  style,
   children,
 }: HeadingProps) {
   const resolvedScale = scale ?? defaultScaleForLevel[as];
@@ -62,7 +64,7 @@ export function Heading({
     .join(" ");
   const Component = as;
   return (
-    <Component id={id} className={classes}>
+    <Component id={id} className={classes} style={style}>
       {children}
     </Component>
   );

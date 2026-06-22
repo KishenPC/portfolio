@@ -3,7 +3,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
-  scroll-snap-type: y proximity;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -13,18 +12,18 @@ html {
 }
 
 @theme {
-  --color-bg: #ffffff;
-  --color-surface: #fafafa;
-  --color-ink: #111111;
-  --color-ink-2: #4b5563;
-  --color-ink-3: #6b7280;
-  --color-line: #e5e7eb;
-  --color-placeholder: #e4e4e4;
-  --color-accent: #4a6d8a;
-  --color-accent-hover: #3f5d75;
-  --color-accent-focus: #4a6d8a;
+  --color-bg: #f7f3ea;
+  --color-surface: #f3efe4;
+  --color-ink: #1a1612;
+  --color-ink-2: #4a4038;
+  --color-ink-3: #6b6053;
+  --color-line: #e4dcc9;
+  --color-placeholder: #e3dbc8;
+  --color-accent: #3f5d75;
+  --color-accent-hover: #345068;
+  --color-accent-focus: #3f5d75;
 
-  --font-display: var(--font-cabinet-grotesk), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-body: var(--font-satoshi), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
@@ -49,9 +48,9 @@ html {
   --container-content: 80rem;
   --container-wide: 90rem;
 
-  --section-y-mobile: 6rem;
-  --section-y-tablet: 7.5rem;
-  --section-y-desktop: 10rem;
+  --section-y-mobile: 5rem;
+  --section-y-tablet: 6.25rem;
+  --section-y-desktop: 8rem;
 
   --card-padding-mobile: 1.25rem;
   --card-padding-tablet: 1.5rem;

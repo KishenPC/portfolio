@@ -21,7 +21,7 @@ export interface SectionProps {
 
 /**
  * Top-level page landmark. Renders a `<section>` with responsive vertical
- * rhythm from the `--section-y-*` tokens (96 / 120 / 160px across mobile /
+ * rhythm from the `--section-y-*` tokens (80 / 100 / 128px across mobile /
  * tablet / desktop) and an inner `Container`.
  *
  * Borders and dividers are intentionally opt-in via `className` so the
@@ -37,7 +37,6 @@ export function Section({
 }: SectionProps) {
   const derivedLabelledBy = id ? `${id}-heading` : undefined;
   const classes = [
-    "snap-start",
     "py-[length:var(--section-y-mobile)]",
     "md:py-[length:var(--section-y-tablet)]",
     "lg:py-[length:var(--section-y-desktop)]",
@@ -49,6 +48,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={labelledById ?? derivedLabelledBy}
+      data-snap-section={id ? "" : undefined}
       className={classes}
     >
       <Container width={width}>{children}</Container>

@@ -7,7 +7,6 @@
  * @see `.docs/PLAN.md` Data Architecture
  */
 import type {
-  Award,
   Certification,
   ExperienceEntry,
   NavItem,
@@ -15,7 +14,6 @@ import type {
   Project,
   StackGroup,
 } from "./types";
-import { awards } from "@/content/awards";
 import { certifications } from "@/content/certifications";
 import { experience } from "@/content/experience";
 import { navigation } from "@/content/navigation";
@@ -41,10 +39,6 @@ export function getExperience(): ExperienceEntry[] {
 
 export function getStack(): StackGroup[] {
   return stack;
-}
-
-export function getAwards(): Award[] {
-  return awards;
 }
 
 export function getCertifications(): Certification[] {
