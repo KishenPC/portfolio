@@ -1,6 +1,7 @@
 import { SiteNav } from "@/components/nav/site-nav";
 import { Hero } from "@/components/sections/hero";
 import { Introduction } from "@/components/sections/introduction";
+import { SelectedWork } from "@/components/work";
 import { getNav, getPersonal } from "@/lib/data";
 
 export default function Page() {
@@ -12,6 +13,7 @@ export default function Page() {
       <main id="main">
         <Hero />
         <Introduction />
+        <SelectedWork />
       </main>
     </>
   );
