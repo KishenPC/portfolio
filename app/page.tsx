@@ -1,4 +1,6 @@
 import { SiteNav } from "@/components/nav/site-nav";
+import { Hero } from "@/components/sections/hero";
+import { Introduction } from "@/components/sections/introduction";
 import { getNav, getPersonal } from "@/lib/data";
 
 export default function Page() {
@@ -7,7 +9,10 @@ export default function Page() {
   return (
     <>
       <SiteNav items={nav} name={personal.name} />
-      <main id="main" className="min-h-screen" />
+      <main id="main">
+        <Hero />
+        <Introduction />
+      </main>
     </>
   );
 }
