@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { Introduction } from "@/components/sections/introduction";
 import { Experience } from "@/components/sections/experience";
 import { SkillStack } from "@/components/sections/skill-stack";
+import { Awards } from "@/components/sections/awards";
 import { SelectedWork } from "@/components/work";
 import { getNav, getPersonal } from "@/lib/data";
 
@@ -18,6 +19,7 @@ export default function Page() {
         <SelectedWork />
         <Experience />
         <SkillStack />
+        <Awards />
       </main>
     </>
   );
