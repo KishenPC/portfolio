@@ -37,6 +37,7 @@ export function Section({
 }: SectionProps) {
   const derivedLabelledBy = id ? `${id}-heading` : undefined;
   const classes = [
+    "snap-start",
     "py-[length:var(--section-y-mobile)]",
     "md:py-[length:var(--section-y-tablet)]",
     "lg:py-[length:var(--section-y-desktop)]",

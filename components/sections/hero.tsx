@@ -23,7 +23,7 @@ import { getPersonal } from "@/lib/data";
 export function Hero() {
   const personal = getPersonal();
   return (
-    <section className="flex min-h-screen items-center border-b border-line pt-16">
+    <section className="flex min-h-screen items-center overflow-x-hidden border-b border-line pt-16">
       <Container width="content" className="w-full">
         <Heading as="h1" scale="hero">
           <RevealText text={personal.name} />

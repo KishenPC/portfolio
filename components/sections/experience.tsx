@@ -1,6 +1,6 @@
 import { Section, Stack } from "@/components/layout";
 import { Body, Heading, Mono, SectionLabel } from "@/components/typography";
-import { FadeUp } from "@/components/motion";
+import { FadeUp, RevealText } from "@/components/motion";
 import { getExperience } from "@/lib/data";
 
 /**
@@ -26,11 +26,11 @@ export function Experience() {
   const entries = getExperience();
 
   return (
-    <Section id="experience" width="reading" className="border-b border-line">
+    <Section id="experience" width="reading" className="border-b border-line bg-surface">
       <SectionLabel>03 — Experience</SectionLabel>
 
       <Heading as="h2" id="experience-heading" className="mt-10">
-        [Experience]
+        <RevealText text="[Experience]" />
       </Heading>
 
       <Stack gap="xl" className="mt-10">

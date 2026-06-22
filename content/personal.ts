@@ -1,26 +1,30 @@
 import type { PersonalInfo } from "@/lib/types";
 
 /**
- * Placeholder personal data mirroring the frozen wireframe.
- * Real content swap is a data-only operation (TASKS.md Task 21).
+ * Real personal data from `.docs/PERSONAL_INFO.md`.
  *
- * Email resolves from `NEXT_PUBLIC_CONTACT_EMAIL` env var with the wireframe's
- * placeholder fallback. `NEXT_PUBLIC_*` is inlined by Next.js at build time,
- * so it works in both server and client contexts.
+ * Email resolves from `NEXT_PUBLIC_CONTACT_EMAIL` env var with a placeholder
+ * fallback — no public email is listed in PERSONAL_INFO.md, so the env var
+ * is the intended path for wiring a real address without committing it.
+ * `NEXT_PUBLIC_*` is inlined by Next.js at build time, so it works in both
+ * server and client contexts.
+ *
+ * The tagline is the opening positioning statement from PERSONAL_INFO.md's
+ * Short Introduction; the `intro` array carries both full paragraphs for the
+ * Introduction section so the hero hooks and the intro elaborates.
  */
 export const personal: PersonalInfo = {
-  name: "[Full Name]",
-  role: "[Role Title]",
-  location: "[Location]",
-  github: "#",
-  linkedin: "#",
+  name: "Kishen Pathiyan Cherumanal",
+  role: "Computer Science Undergraduate",
+  location: "India",
+  github: "https://github.com/KishenPC",
+  linkedin: "https://www.linkedin.com/in/kishen-pc-a68b41320/",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
   tagline:
-    "[One-line positioning statement goes here describing curiosity, product thinking, and building experiences people enjoy using.]",
+    "Building products, exploring systems, and creating experiences people enjoy using.",
   intro: [
-    "[Short editorial paragraph describing how this person thinks about building products, exploring systems, and creating experiences people enjoy using.]",
-    "[Second paragraph expanding on learning through building and the breadth of work spanning web, mobile, developer tools, recommendation systems, and interactive visualizations.]",
-    "[Third paragraph reinforcing curiosity and a growth mindset through hands-on construction.]",
+    "I am a Computer Science undergraduate interested in building products, exploring systems, and creating experiences people enjoy using.",
+    "I enjoy learning through building and have worked on projects spanning web development, mobile applications, developer-focused tools, recommendation systems, and interactive visualizations.",
   ],
   education: {
     degree: "B.Tech",

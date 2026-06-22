@@ -1,5 +1,6 @@
 import { Section, Stack } from "@/components/layout";
 import { Body, Heading, SectionLabel } from "@/components/typography";
+import { RevealText } from "@/components/motion";
 import { getProjects } from "@/lib/data";
 import { FeaturedProject } from "./featured-project";
 import { EditorialProject } from "./editorial-project";
@@ -24,7 +25,7 @@ export function SelectedWork() {
       <SectionLabel>02 — Selected Work</SectionLabel>
 
       <Heading as="h2" id="work-heading" className="mt-10">
-        [Selected Work]
+        <RevealText text="[Selected Work]" />
       </Heading>
 
       <Body scale="body" className="mt-6 max-w-reading text-ink-2">

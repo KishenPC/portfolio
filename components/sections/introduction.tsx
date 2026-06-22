@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout";
 import { Body, Heading, Mono, SectionLabel } from "@/components/typography";
-import { FadeUp } from "@/components/motion";
+import { FadeUp, RevealText } from "@/components/motion";
 import { getPersonal } from "@/lib/data";
 
 /**
@@ -21,15 +21,15 @@ export function Introduction() {
   const personal = getPersonal();
   const { education } = personal;
   return (
-    <Section id="intro" width="reading" className="border-b border-line">
+    <Section id="intro" width="reading" className="border-b border-line bg-surface">
       <SectionLabel>01 — Introduction</SectionLabel>
       <Heading as="h2" id="intro-heading" className="mt-10">
-        [Introduction]
+        <RevealText text="[Introduction]" />
       </Heading>
       <FadeUp className="mt-10">
         <div className="space-y-6">
           {personal.intro.map((paragraph) => (
-            <Body key={paragraph} scale="body" className="leading-relaxed">
+            <Body key={paragraph} scale="large" className="leading-relaxed">
               {paragraph}
             </Body>
           ))}

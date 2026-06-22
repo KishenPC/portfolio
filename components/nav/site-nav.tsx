@@ -46,7 +46,7 @@ export function SiteNav({ items, name }: SiteNavProps) {
       <div className="mx-auto flex h-full max-w-content items-center justify-between px-6">
         <a
           href="#main"
-          className="rounded font-display font-medium text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="truncate max-w-[55%] sm:max-w-[65%] rounded font-display font-medium text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           {name}
         </a>

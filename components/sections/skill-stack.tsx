@@ -1,6 +1,6 @@
 import { Section, Stack } from "@/components/layout";
 import { Body, Heading, SectionLabel } from "@/components/typography";
-import { FadeUp } from "@/components/motion";
+import { FadeUp, RevealText } from "@/components/motion";
 import { getStack } from "@/lib/data";
 import { StackGroup } from "./stack-group";
 
@@ -32,7 +32,7 @@ export function SkillStack() {
       <SectionLabel>04 — Skill Stack</SectionLabel>
 
       <Heading as="h2" id="stack-heading" className="mt-10">
-        [Skill Stack]
+        <RevealText text="[Skill Stack]" />
       </Heading>
 
       <Body scale="body" className="mt-6 max-w-reading text-ink-2">

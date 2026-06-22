@@ -31,7 +31,7 @@ export function EditorialProject({ project }: EditorialProjectProps) {
   const [screenshot] = project.screenshots;
 
   return (
-    <article className="border-t border-line pt-12">
+    <article className="border-t border-line pt-12 transition-colors duration-300 hover:border-ink-3">
       <Eyebrow as="div" className="mb-4">
         MODE: Editorial
       </Eyebrow>

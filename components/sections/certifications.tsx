@@ -1,7 +1,7 @@
 import type { Certification } from "@/lib/types";
 import { Section } from "@/components/layout";
 import { Body, Heading, Mono, SectionLabel } from "@/components/typography";
-import { FadeUp } from "@/components/motion";
+import { FadeUp, RevealText } from "@/components/motion";
 import { getCertifications } from "@/lib/data";
 
 /**
@@ -40,7 +40,7 @@ export function Certifications() {
       <SectionLabel>06 — Certifications</SectionLabel>
 
       <Heading as="h2" id="certifications-heading" className="mt-10">
-        [Certifications]
+        <RevealText text="[Certifications]" />
       </Heading>
 
       <Body scale="body" className="mt-6 max-w-reading text-ink-2">

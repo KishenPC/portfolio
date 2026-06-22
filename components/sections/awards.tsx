@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout";
 import { Heading, Mono, SectionLabel } from "@/components/typography";
-import { FadeUp } from "@/components/motion";
+import { FadeUp, RevealText } from "@/components/motion";
 import { getAwards } from "@/lib/data";
 
 /**
@@ -26,11 +26,11 @@ export function Awards() {
   const awards = getAwards();
 
   return (
-    <Section id="recognition" width="reading" className="border-b border-line">
+    <Section id="recognition" width="reading" className="border-b border-line bg-surface">
       <SectionLabel>05 — Recognition</SectionLabel>
 
       <Heading as="h2" id="recognition-heading" className="mt-10">
-        [Recognition]
+        <RevealText text="[Recognition]" />
       </Heading>
 
       <FadeUp className="mt-10">

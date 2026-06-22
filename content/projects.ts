@@ -1,26 +1,33 @@
 import type { Project } from "@/lib/types";
 
 /**
- * Placeholder projects mirroring the frozen wireframe Selected Work section.
- * 2 featured + 2 editorial; keywords match the wireframe exactly.
+ * Real project data from `.docs/PERSONAL_INFO.md`.
  *
- * `screenshots[].src` is empty for placeholders — the consuming `ProjectImage`
- * component renders a placeholder box when `src` is empty. Real screenshots
- * arrive in TASKS.md Task 22.
+ * 2 featured (FaultLine, Git Social) + 2 editorial (TraceFlow, Compile &
+ * Conquer). Titles, subtitles, and summaries are the descriptions from
+ * PERSONAL_INFO.md. Keywords are derived faithfully from each project's
+ * own highlights — no invented themes.
+ *
+ * Fields not present in PERSONAL_INFO.md remain as placeholders:
+ * - `screenshots[].src` — real screenshots arrive in TASKS.md Task 22
+ * - `metrics` — no quantitative metrics documented yet
+ * - `links[].href` — no individual project URLs documented; "#" placeholders
+ * - `narrative` (featured) — no Context/Approach/Outcome narrative written yet
+ * - `detail.mdx` — no long-form MDX content written yet
  */
 export const projects: Project[] = [
   {
-    slug: "project-1",
+    slug: "faultline",
     mode: "featured",
-    title: "[Project 1]",
+    title: "FaultLine",
     subtitle:
-      "[Project subtitle describing the product in one sentence.]",
+      "Fault injection platform designed for testing and understanding application behavior under failure conditions.",
     summary:
-      "[Project summary describing what was built, why, and what it demonstrates.]",
-    keywords: ["Full Stack", "Product", "Open Source", "Infrastructure"],
+      "Fault injection platform designed for testing and understanding application behavior under failure conditions.",
+    keywords: ["Developer Tooling", "Testing", "Fault Injection", "Interactive"],
     screenshots: [
-      { src: "", alt: "Primary screenshot placeholder" },
-      { src: "", alt: "Secondary screenshot placeholder" },
+      { src: "", alt: "FaultLine primary screenshot" },
+      { src: "", alt: "FaultLine secondary screenshot" },
     ],
     metrics: [
       { label: "[Label 1]", value: "[Value]" },
@@ -53,17 +60,17 @@ export const projects: Project[] = [
     detail: { mdx: "[Expandable in-page detail — MDX content loads by slug.]" },
   },
   {
-    slug: "project-2",
+    slug: "git-social",
     mode: "featured",
-    title: "[Project 2]",
+    title: "Git Social",
     subtitle:
-      "[Project subtitle describing the product in one sentence.]",
+      "Developer discovery platform inspired by social content feeds.",
     summary:
-      "[Project summary describing what was built, why, and what it demonstrates.]",
-    keywords: ["Developer Experience", "Systems", "Visualization", "Learning"],
+      "Developer discovery platform inspired by social content feeds.",
+    keywords: ["Developer Discovery", "Recommendation", "Social", "Personalization"],
     screenshots: [
-      { src: "", alt: "Primary screenshot placeholder" },
-      { src: "", alt: "Secondary screenshot placeholder" },
+      { src: "", alt: "Git Social primary screenshot" },
+      { src: "", alt: "Git Social secondary screenshot" },
     ],
     metrics: [
       { label: "[Label 1]", value: "[Value]" },
@@ -96,15 +103,15 @@ export const projects: Project[] = [
     detail: { mdx: "[Expandable in-page detail — MDX content loads by slug.]" },
   },
   {
-    slug: "project-3",
+    slug: "traceflow",
     mode: "editorial",
-    title: "[Project 3]",
+    title: "TraceFlow",
     subtitle:
-      "[Project subtitle describing the product in one sentence.]",
+      "Interactive algorithm visualization platform.",
     summary:
-      "[Project summary describing what was built, why, and what it demonstrates.]",
-    keywords: ["React", "TypeScript", "PostgreSQL", "Mobile"],
-    screenshots: [{ src: "", alt: "Primary screenshot placeholder" }],
+      "Interactive algorithm visualization platform.",
+    keywords: ["Visualization", "Education", "Interactive", "Algorithms"],
+    screenshots: [{ src: "", alt: "TraceFlow primary screenshot" }],
     metrics: [
       { label: "[Label 1]", value: "[Value]" },
       { label: "[Label 2]", value: "[Value]" },
@@ -118,15 +125,15 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "project-4",
+    slug: "compile-and-conquer",
     mode: "editorial",
-    title: "[Project 4]",
+    title: "Compile & Conquer",
     subtitle:
-      "[Project subtitle describing the product in one sentence.]",
+      "Adaptive DSA recommendation platform.",
     summary:
-      "[Project summary describing what was built, why, and what it demonstrates.]",
-    keywords: ["Recommendation Systems", "Backend", "Data"],
-    screenshots: [{ src: "", alt: "Primary screenshot placeholder" }],
+      "Adaptive DSA recommendation platform.",
+    keywords: ["Recommendation Systems", "Education", "Personalization", "DSA"],
+    screenshots: [{ src: "", alt: "Compile & Conquer primary screenshot" }],
     metrics: [
       { label: "[Label 1]", value: "[Value]" },
       { label: "[Label 2]", value: "[Value]" },

@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout";
 import { Body, Eyebrow, Heading, Mono, SectionLabel } from "@/components/typography";
-import { FadeUp } from "@/components/motion";
+import { FadeUp, RevealText } from "@/components/motion";
 import { MagneticLink } from "@/lib/motion/magnetic-link";
 import { LetsConnect } from "@/components/contact/lets-connect";
 import { getPersonal } from "@/lib/data";
@@ -49,11 +49,11 @@ export function Connect() {
     "inline-block rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
 
   return (
-    <Section id="connect" width="content" className="border-b border-line">
+    <Section id="connect" width="content" className="border-b border-line bg-surface">
       <SectionLabel>07 — Let&apos;s Connect</SectionLabel>
 
       <Heading as="h2" id="connect-heading" className="mt-10">
-        [Let&apos;s Connect]
+        <RevealText text="[Let's Connect]" />
       </Heading>
 
       <Body scale="body" className="mt-6 max-w-reading text-ink-2">

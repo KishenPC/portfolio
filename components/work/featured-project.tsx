@@ -130,7 +130,9 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
         </div>
       ) : null}
 
-      <MetricRow metrics={project.metrics} className="mt-8" />
+      <FadeUp className="mt-8">
+        <MetricRow metrics={project.metrics} />
+      </FadeUp>
       <LinkRow links={project.links} className="mt-8" />
 
       {project.detail ? (

@@ -23,7 +23,7 @@ export interface LogoPlaceholderProps {
  */
 export function LogoPlaceholder({ item, className }: LogoPlaceholderProps) {
   const frame = [
-    "relative w-24 h-16 md:w-28 md:h-20 border border-line bg-surface",
+    "relative w-24 h-16 md:w-28 md:h-20 border border-line bg-surface transition-colors duration-200 hover:border-ink-3",
     className,
   ]
     .filter(Boolean)
