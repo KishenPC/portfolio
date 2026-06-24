@@ -48,10 +48,6 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
 
   return (
     <article className="border-t border-line pt-12">
-      <Eyebrow as="div" className="mb-4">
-        MODE: Featured Narrative
-      </Eyebrow>
-
       <Heading as="h3" scale="project-title">
         {project.title}
       </Heading>

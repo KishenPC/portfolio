@@ -1,8 +1,21 @@
+import { Dancing_Script } from "next/font/google";
 import { LetsConnect } from "./lets-connect";
+
+const cursive = Dancing_Script({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function WireframePage() {
   return (
-    <div className="min-h-screen">
+    <div
+      className="min-h-screen"
+      style={
+        {
+          "--font-display": `${cursive.style.fontFamily}, Georgia, "Times New Roman", serif`,
+        } as React.CSSProperties
+      }
+    >
       <Nav />
       <main id="main">
         <Hero />

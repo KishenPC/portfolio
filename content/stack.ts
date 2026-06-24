@@ -41,8 +41,8 @@ export const stack: StackGroup[] = [
     name: "Databases",
     items: [
       { name: "PostgreSQL", logo: "" },
+      { name: "MongoDB", logo: ""},
       { name: "Supabase", logo: "" },
-      { name: "Firebase", logo: "" },
     ],
   },
   {
