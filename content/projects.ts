@@ -37,8 +37,6 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "#", kind: "github" },
-      { label: "Live", href: "#", kind: "live" },
-      { label: "Case Study", href: "#", kind: "case-study" },
     ],
     narrative: [
       {
@@ -80,8 +78,6 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "#", kind: "github" },
-      { label: "Live", href: "#", kind: "live" },
-      { label: "Case Study", href: "#", kind: "case-study" },
     ],
     narrative: [
       {
@@ -120,8 +116,6 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "#", kind: "github" },
-      { label: "Live", href: "#", kind: "live" },
-      { label: "Case Study", href: "#", kind: "case-study" },
     ],
   },
   {
@@ -132,7 +126,7 @@ export const projects: Project[] = [
       "Adaptive DSA recommendation platform.",
     summary:
       "Adaptive DSA recommendation platform.",
-    keywords: ["Recommendation Systems", "Education", "Personalization", "DSA"],
+    keywords: ["PVP", "Education", "Personalization", "DSA"],
     screenshots: [{ src: "", alt: "Compile & Conquer primary screenshot" }],
     metrics: [
       { label: "[Label 1]", value: "[Value]" },
@@ -142,8 +136,6 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "#", kind: "github" },
-      { label: "Live", href: "#", kind: "live" },
-      { label: "Case Study", href: "#", kind: "case-study" },
     ],
   },
 ];

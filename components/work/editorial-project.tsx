@@ -1,5 +1,5 @@
 import type { Project } from "@/lib/types";
-import { Body, Eyebrow, Heading } from "@/components/typography";
+import { Body, Heading } from "@/components/typography";
 import { MaskReveal } from "@/components/motion";
 import { KeywordCluster, LinkRow, MetricRow, ProjectImage } from "./index";
 
@@ -32,10 +32,6 @@ export function EditorialProject({ project }: EditorialProjectProps) {
 
   return (
     <article className="border-t border-line pt-12 transition-colors duration-300 hover:border-ink-3">
-      <Eyebrow as="div" className="mb-4">
-        MODE: Editorial
-      </Eyebrow>
-
       <div className="grid gap-8 md:grid-cols-12 md:items-start">
         <div className="md:col-span-7">
           {screenshot ? (

@@ -1,3 +1,5 @@
+import { Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Section } from "@/components/layout";
 import { Body, Eyebrow, Heading, Mono, SectionLabel } from "@/components/typography";
 import { FadeUp, RevealText } from "@/components/motion";
@@ -45,8 +47,14 @@ export function Connect() {
     { label: "Email", href: `mailto:${personal.email}`, external: false },
   ];
 
+  const icons: Record<string, React.ReactNode> = {
+    GitHub: <GithubIcon className="shrink-0" />,
+    LinkedIn: <LinkedinIcon className="shrink-0" />,
+    Email: <Mail size={22} className="shrink-0" aria-hidden="true" />,
+  };
+
   const linkClass =
-    "inline-block rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
+    "inline-flex items-center gap-3 rounded py-1 text-large-body text-ink-2 underline underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
 
   return (
     <Section id="connect" width="content" className="border-b border-line bg-surface">
@@ -81,7 +89,8 @@ export function Connect() {
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    {link.label}
+                    {icons[link.label]}
+                    <span>{link.label}</span>
                     {link.external ? (
                       <span aria-hidden="true" className="ml-0.5">
                         {"\u2197"}

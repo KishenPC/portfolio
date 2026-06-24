@@ -19,12 +19,12 @@ export const personal: PersonalInfo = {
   location: "India",
   github: "https://github.com/KishenPC",
   linkedin: "https://www.linkedin.com/in/kishen-pc-a68b41320/",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "pckishen@gmail.com",
   tagline:
     "",
   intro: [
-    "I am a Computer Science undergraduate interested in building products, exploring systems, and creating experiences people enjoy using.",
-    "I enjoy learning through building and have worked on projects spanning web development, mobile applications, developer-focused tools, recommendation systems, and interactive visualizations.",
+    "I am a 3rd Year B.Tech Computer Science and Engineering student at VIT Vellore who enjoys building products, exploring systems, and collaborating with teams to deliver impactful large-scale projects and experiences that people enjoy using.",
+    "I enjoy learning through building and have worked on projects spanning web development, mobile applications, developer tools, recommendation systems, and interactive visualizations.",
   ],
   education: {
     degree: "B.Tech",
