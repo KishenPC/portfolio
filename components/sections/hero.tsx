@@ -7,9 +7,6 @@ import { HeroClient } from "./hero-client";
  *
  * Server shell: fetches `personal` from the typed data layer and passes it
  * to `HeroClient` so the content module stays out of the client bundle.
- * `HeroClient` owns the intro-loader handshake (`useIntroDone`) and the
- * name's visibility/entrance — the name's entrance is the loader flight,
- * then role → tagline → scroll cue fade-up cascade on `done`.
  *
  * Hierarchy matches the approved wireframe: name → role → tagline → scroll
  * cue. `pt-16` offsets the fixed header so content never hides behind the
